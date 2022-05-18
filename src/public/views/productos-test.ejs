@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Normalizacion Test Products</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <%- include('./partials/navBar'); -%>
+    <table class="table table-striped table-dark w-50 table-hover mt-5 mx-auto">
+        <tr>
+            <th>NOMBRE</th>
+            <th>PRECIO</th>
+            <th>FOTO</th>
+        </tr>
+        <% for(producto of productos) {%>
+        <tr>
+            <td><%= producto.nombre%></td>
+            <td><%= producto.precio%></td>
+            <td><%= producto.foto%></td>
+        </tr>
+        <% } %>
+    </table>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
