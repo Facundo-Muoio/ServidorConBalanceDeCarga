@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,6 +15,7 @@
     "ejs": "^3.1.8",
     "express": "^4.18.1",
     "mongodb": "^4.6.0",
+    "mongoose": "^6.3.3",
     "normalizr": "^3.6.2",
     "socket.io": "^4.5.1"
   },

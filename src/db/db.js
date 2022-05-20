@@ -1,23 +1,17 @@
-const { MongoClient } = require("mongodb")
+const mongoose = require("mongoose")
 
 //Conection URL
-const url = "mongodb://localhost:27017"
-const client = new MongoClient(url)
+const url = "mongodb://localhost:27017/normalizacion"
 
-
-//Database Name
-
-
-async function connectDB(){
-    try{
-        await client.connect();
+ async function connect () {
+     try{
+        await mongoose.connect(url)
         console.log("Connected succesfully to DB")
-        const db = client.db("normalizacion")
-        const mensajes = db.collection("mensajes")
-        return mensajes
-    }catch(err){
-        console.log(err)
-    }   
-}
+     }catch(err){
+         console.log(err)
+     }
+ }
 
-module.exports = { connectDB }
+ module.exports = { connect }
+
+

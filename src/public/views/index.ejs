@@ -6,31 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Normalizacion</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
     <%- include('./partials/navBar'); -%>
-    <div class="container w-25 p-4 mt-5 card text-bg-warning">
-       <div class="row card-body">
-            <div class="col">
-                <div class="card-header text-center mb-3 bg-dark text-white">
-                   <h1>CHAT</h1>
-                </div>
-                <form class="d-flex flex-column" action="" method="" id="form">
-                   <input class="form-control my-2" type="email" name="email" placeholder="Email">
-                   <input class="form-control my-2" type="text" name="nombre" placeholder="Nombre">
-                   <input class="form-control my-2" type="text" name="apellido" placeholder="Apellido">
-                   <input class="form-control my-2" type="text" name="edad" placeholder="Edad">
-                   <input class="form-control my-2" type="text" name="alias" placeholder="Alias">
-                   <input class="form-control my-2" type="url" name="avatar" placeholder="Avatar">
-                   <textarea class="form-control my-2" name="mensaje" placeholder="Mensaje"></textarea>
-                   <button class="btn btn-dark">Enviar</button>
-                </form>
-            </div>
-       </div>
-    </div>
-    <div class="card text-bg-warning" id="cajaDeMensajes">
+    <div class="container widthCard p-4 mt-5 card text-bg-warning">
+        <div class="card-header text-center mb-3 bg-dark text-white">
+            <h1 id="cardHeader"></h1>
+        </div>
+        <div class="row card-body">
+            <form class="d-flex flex-column" action="" method="" id="form">
+                <input class="form-control my-2" type="email" name="email" placeholder="Email">
+                <input class="form-control my-2" type="text" name="nombre" placeholder="Nombre">
+                <input class="form-control my-2" type="text" name="apellido" placeholder="Apellido">
+                <input class="form-control my-2" type="text" name="edad" placeholder="Edad">
+                <input class="form-control my-2" type="text" name="alias" placeholder="Alias">
+                <input class="form-control my-2" type="url" name="avatar" placeholder="Avatar">
+                <textarea class="form-control my-2" name="mensaje" placeholder="Mensaje"></textarea>
+                <button class="btn btn-dark">Enviar</button>
+            </form>
+        </div>
+        <div class="card-footer" id="cajaDeMensajes"></div>
     </div>
     <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/normalizr@3.6.1/dist/normalizr.browser.min.js"></script>
     <script src="../js/main.js" type="module"></script>
 </body>
 </html>
