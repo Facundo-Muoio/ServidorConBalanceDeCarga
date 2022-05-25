@@ -10,6 +10,11 @@
 </head>
 <body>
     <%- include('./partials/navBar'); -%>
+
+    <%if(userName){%>
+        <%-include("./partials/cardUserLogin"); -%>
+    <%}%>
+
     <div class="container widthCard p-4 mt-5 card text-bg-warning">
         <div class="card-header text-center mb-3 bg-dark text-white">
             <h1 id="cardHeader"></h1>
@@ -31,5 +36,6 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/normalizr@3.6.1/dist/normalizr.browser.min.js"></script>
     <script src="../js/main.js" type="module"></script>
+    <script src="../js/login.js" type="module"></script>
 </body>
 </html>

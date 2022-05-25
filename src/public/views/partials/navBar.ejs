@@ -6,8 +6,14 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link active text-light" aria-current="page" href="/">Home</a>
-          <a class="nav-link text-light" href="/api/productos-test">Productos</a>
+          <%if(!userName) {%>
+            <a class="nav-link active text-light" aria-current="page" href="/">Home</a>
+            <a class="nav-link text-light" href="/api/productos-test">Productos</a>
+            <a class="nav-link text-light" href="/api/login">Login</a>
+          <%} else {%>
+            <a class="nav-link active text-light" aria-current="page" href="/">Home</a>
+            <a class="nav-link text-light" href="/api/productos-test">Productos</a>
+          <%}%>
         </div>
       </div>
     </div>
