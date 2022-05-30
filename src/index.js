@@ -14,6 +14,8 @@ const cookieParser = require("cookie-parser")
 const session = require("express-session")
 const MongoStore = require("connect-mongo")
 const advancedOptions = {useNewUrlParser: true, useUnifiedTopology: true}
+const passport = require("passport")
+require("./passport/local-auth")
 
 
 
@@ -37,9 +39,17 @@ app.use(session({
     rolling: true,
     saveUninitialized: false,
     cookie: {
-        maxAge: 60000
+        maxAge: 100000
     }
 }))
+
+app.use(passport.initialize())
+app.use(passport.session())
+
+app.use((req, res, next) => {
+    app.locals.user = req.user
+    next()
+})
 
 //routes
 app.use(router)

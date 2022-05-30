@@ -10,12 +10,12 @@
 <body>
     <%-include("./partials/navBar") -%>
     <div class="card w-50 mx-auto my-5 p-2 text-bg-warning">
-        <h2 class="card-title">Login de usuario</h2>
-        <form id="formUsuario" action="/api/login" method="post">
+        <h2 class="card-title">Registro de usuario</h2>
+        <form id="formUsuario" action="/api/registration" method="post">
             <input type="email" name="email" placeholder="Ingrese su email" class="form-control">
             <input type="password" name="password" placeholder="Ingrese su password" class="form-control mt-2">
-            <button class="btn btn-dark mt-2">Ingresar</button>
-            <button class="btn btn-dark mt-2"><a class="text-decoration-none text-white" href="/api/registration">Ir a Register</a></button>
+            <button class="btn btn-dark mt-2">Registrarse</button>
+            <button class="btn btn-dark mt-2"><a class="text-decoration-none text-white" href="/api/login">Ir a Login</a></button>
         </form>
     </div>
 </body>
