@@ -37,6 +37,7 @@ const { port } =  parseArgs(process.argv.slice(2), options)
 app.set("port", port)
 app.set("views", path.join(__dirname, "public/views"))
 app.set("view engine", "ejs")
+app.set('json spaces', 2)
 
 //middlewares
 app.use(morgan("dev"))

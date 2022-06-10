@@ -21,13 +21,9 @@ function randomNums(cantidadNumeros) {
     } return objNum
 }
 
-// const num = randomNums(undefined)
-// console.log(num)
-
-
 process.on("message", num => {
-   console.log(num)
-   const nums = randomNums(num.cant)
+   let key = Object.values(num)
+   const nums = randomNums(key[0])
    process.send( nums )
    process.exit()
 })
