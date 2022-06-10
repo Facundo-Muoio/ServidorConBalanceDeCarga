@@ -1,7 +1,8 @@
 const mongoose = require("mongoose")
+require("dotenv").config()
 
 //Conection URL
-const url = "mongodb://localhost:27017/normalizacion"
+const url = process.env.MONGODB_URL
 
  async function connect () {
      try{

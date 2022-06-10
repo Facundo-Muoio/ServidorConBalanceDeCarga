@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>info app</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <%- include('./partials/navBar'); -%>
+    <%if(user) {%>
+        <%- include('./partials/cardUserLogin'); -%>   
+    <% } %>
+   <div class="container mx-auto mt-5"> 
+     <div class="card text-bg-warning border-dark ">
+         <div class="card-header text-bg-dark">
+             <h3>INFO APP</h3>
+         </div>
+         <div class="card-body">
+             <p><b>Argumentos de entrada: </b><%=entryArguments%></p>
+             <p><b>Nombre de plataforma: </b><%=systemName%></p>
+             <p><b>Versión de Node.js: </b><%=versionNode%></p>
+             <p><b>Memoria total reservada: </b><%=memory.rss%></p>
+             <p><b>Path de ejecución: </b><%=path%></p>
+             <p><b>Process id: </b><%=processId%></p>
+             <p><b>Carpeta del proyecto: </b><%=projectDirectory%></p>
+         </div>
+     </div> 
+   </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/login.js"></script>     
+</body>
+</html>

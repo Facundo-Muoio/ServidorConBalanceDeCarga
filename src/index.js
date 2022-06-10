@@ -15,12 +15,26 @@ const session = require("express-session")
 const MongoStore = require("connect-mongo")
 const advancedOptions = {useNewUrlParser: true, useUnifiedTopology: true}
 const passport = require("passport")
+const { resolveSoa } = require("dns")
+const parseArgs = require("minimist")
 require("./passport/local-auth")
+require("dotenv").config()
 
 
+//config port with minimist
+const options = {
+    alias: { 
+        p: "port" 
+    }, 
+    default: {
+         port: 8080 
+        } 
+    }
+
+const { port } =  parseArgs(process.argv.slice(2), options)
 
 //setting server
-app.set("port", process.env.PORT || 3000)
+app.set("port", port)
 app.set("views", path.join(__dirname, "public/views"))
 app.set("view engine", "ejs")
 
@@ -31,7 +45,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(cookieParser("secreto"))
 app.use(session({
-    store: MongoStore.create({mongoUrl: "mongodb+srv://facundo:facundo@coderback.r5nm3.mongodb.net/?retryWrites=true&w=majority", 
+    store: MongoStore.create({mongoUrl: process.env.MONGO_URL_SERVER, 
     mongoOptions: advancedOptions}
     ),
     secret: "secreto",
@@ -74,5 +88,5 @@ io.on("connection", async (socket) => {
 })
 
 //starting server
-httpServer.listen(app.get("port"), () => console.log(`Server listen on port ${app.get("port")}`))
+httpServer.listen(app.get("port"), process.env.HOST,() => console.log(`Server listen on http://${process.env.HOST}:${app.get("port")}`))
 

@@ -2,6 +2,7 @@ const { Router } = require("express")
 const { generarProducts } = require("../public/js/faker")   
 const router = Router()
 const passport = require("passport")
+const { fork } = require("child_process")
 
 
 
@@ -49,6 +50,26 @@ router.get("/api/logout", (req, res) => {
         } else {
             res.redirect("/")
         }
+    })
+})
+
+router.get("/info", (req, res) => {
+    const entryArguments = process.argv
+    const systemName = process.platform
+    const versionNode = process.version
+    const memory = process.memoryUsage()
+    const path  =   process.execPath
+    const processId = process.pid
+    const projectDirectory = process.cwd()
+
+    res.render("info", {entryArguments, systemName, versionNode, memory, path, processId, projectDirectory})
+})
+
+router.get("/api/randoms", (req, res) => {
+    const computo = fork("./src/computo.js")
+    computo.send(req.query)
+    computo.on("message", resultado => {
+        res.json({ resultado })
     })
 })
 
