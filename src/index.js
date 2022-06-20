@@ -19,19 +19,23 @@ const { resolveSoa } = require("dns")
 const parseArgs = require("minimist")
 require("./passport/local-auth")
 require("dotenv").config()
+const ServerClusterFork  = require("./server/server")
+
 
 
 //config port with minimist
 const options = {
     alias: { 
-        p: "port" 
+        p: "port",
+        m: "mode"
     }, 
     default: {
-         port: 8080 
+         port: 8080,
+         mode: "fork"
         } 
     }
 
-const { port } =  parseArgs(process.argv.slice(2), options)
+const { port, mode } =  parseArgs(process.argv.slice(2), options)
 
 //setting server
 app.set("port", port)
@@ -41,7 +45,7 @@ app.set('json spaces', 2)
 
 //middlewares
 app.use(morgan("dev"))
-app.use(express.static(path.join(__dirname, "public")))
+// app.use(express.static(path.join(__dirname, "public")))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(cookieParser("secreto"))
@@ -89,5 +93,6 @@ io.on("connection", async (socket) => {
 })
 
 //starting server
-httpServer.listen(app.get("port"), process.env.HOST,() => console.log(`Server listen on http://${process.env.HOST}:${app.get("port")}`))
-
+// httpServer.listen(app.get("port"), process.env.HOST,() => console.log(`Server listen on http://${process.env.HOST}:${app.get("port")} - MODE: ${mode}`))
+const server = new ServerClusterFork()
+server[mode](port, httpServer)

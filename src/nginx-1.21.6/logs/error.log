@@ -1,0 +1,10 @@
+2022/06/16 11:30:17 [error] 5016#15224: *1 CreateFile() "C:\Users\facun\OneDrive\Escritorio\ngnex\nginx-1.21.6/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2022/06/16 11:45:55 [notice] 7060#9744: signal process started
+2022/06/16 11:45:55 [error] 7060#9744: OpenEvent("Global\ngx_quit_16120") failed (5: Access is denied)
+2022/06/16 11:47:13 [notice] 15912#15880: signal process started
+2022/06/16 11:47:13 [error] 15912#15880: OpenEvent("Global\ngx_reopen_16120") failed (5: Access is denied)
+2022/06/16 11:47:55 [notice] 7188#13640: signal process started
+2022/06/16 11:47:55 [error] 7188#13640: OpenEvent("Global\ngx_stop_16120") failed (5: Access is denied)
+2022/06/16 11:49:19 [notice] 14300#15420: signal process started
+2022/06/16 11:49:19 [error] 14300#15420: OpenEvent("Global\ngx_stop_16120") failed (5: Access is denied)
+2022/06/20 19:06:20 [error] 16280#6200: *2 CreateFile() "C:\Users\facun\OneDrive\Escritorio\ngnex\nginx-1.21.6/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"

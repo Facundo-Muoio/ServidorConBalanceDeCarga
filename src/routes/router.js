@@ -3,6 +3,10 @@ const { generarProducts } = require("../public/js/faker")
 const router = Router()
 const passport = require("passport")
 const { fork } = require("child_process")
+const { cpus } = require("os")
+const CPUs = cpus().length
+const cluster = require("cluster")
+const http = require("http")
 
 
 
@@ -61,8 +65,10 @@ router.get("/info", (req, res) => {
     const path  =   process.execPath
     const processId = process.pid
     const projectDirectory = process.cwd()
+    const numCpus = CPUs
+    console.log(numCpus)
 
-    res.render("info", {entryArguments, systemName, versionNode, memory, path, processId, projectDirectory})
+    res.render("info", {entryArguments, systemName, versionNode, memory, path, processId, projectDirectory, numCpus})
 })
 
 router.get("/api/randoms", (req, res) => {
